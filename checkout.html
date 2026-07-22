@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформлення замовлення | Rail MATE</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .checkout-section {
+      background-color: var(--color-primary-white);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      border: 1px solid var(--color-border);
+    }
+
+    .checkout-section__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 16px;
+    }
+
+    .checkout-section__title i {
+      color: var(--color-primary-blue);
+      font-size: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      padding: 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .checkbox-label:hover {
+      border-color: var(--color-primary-blue);
+      background-color: rgba(137, 207, 240, 0.05);
+    }
+
+    .checkbox-label input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--color-primary-blue);
+    }
+
+    .order-summary {
+      background-color: var(--color-primary-white);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      position: sticky;
+      top: 100px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: var(--color-text-main);
+    }
+
+    .summary-item.muted {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--color-border);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .summary-total .price {
+      color: var(--color-accent-orange);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Шапка -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="header__logo">
+          <i class="ph-fill ph-train"></i>
+          Rail MATE
+        </a>
+        <nav class="header__nav">
+          <a href="index.html" class="header__nav-link">Головна</a>
+          <a href="#" class="header__nav-link">Мої квитки</a>
+          <div class="header__nav-link" style="display: flex; align-items: center; gap: 8px;">
+            <i class="ph-fill ph-user-circle" style="font-size: 1.5rem; color: var(--color-primary-blue);"></i>
+            Олексій
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container section">
+        <h1 style="font-size: 2rem; margin-bottom: 8px;">Оформлення замовлення</h1>
+        <p style="color: var(--color-text-muted);">Будь ласка, уважно заповніть дані пасажира</p>
+
+        <div class="checkout-layout">
+          <!-- Ліва колонка: Форми -->
+          <div class="checkout-forms">
+            
+            <div class="checkout-section">
+              <h2 class="checkout-section__title">
+                <i class="ph ph-user-focus"></i>
+                Дані пасажира (Місце 6)
+              </h2>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Ім'я</label>
+                  <i class="ph ph-user form-icon"></i>
+                  <input type="text" class="form-control" placeholder="Олексій" value="Олексій">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Прізвище</label>
+                  <i class="ph ph-user form-icon"></i>
+                  <input type="text" class="form-control" placeholder="Іванов" value="Іванов">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Тип документа</label>
+                <i class="ph ph-identification-card form-icon"></i>
+                <select class="form-control" style="padding-left: 44px; appearance: none;">
+                  <option>Паспорт громадянина України</option>
+                  <option>Закордонний паспорт</option>
+                  <option>Свідоцтво про народження</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h2 class="checkout-section__title">
+                <i class="ph ph-coffee"></i>
+                Додаткові послуги
+              </h2>
+              
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" checked>
+                  <div style="flex: 1;">
+                    <div style="font-weight: 500;">Напій (чай або кава)</div>
+                    <div style="font-size: 0.85rem; color: var(--color-text-muted);">Буде запропоновано провідником</div>
+                  </div>
+                  <div style="font-weight: 600;">20 грн</div>
+                </label>
+                
+                <label class="checkbox-label">
+                  <input type="checkbox">
+                  <div style="flex: 1;">
+                    <div style="font-weight: 500;">Додатковий багаж</div>
+                    <div style="font-size: 0.85rem; color: var(--color-text-muted);">Більше 36 кг або великогабаритний</div>
+                  </div>
+                  <div style="font-weight: 600;">150 грн</div>
+                </label>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h2 class="checkout-section__title">
+                <i class="ph ph-credit-card"></i>
+                Спосіб оплати
+              </h2>
+              
+              <div class="checkbox-group">
+                <label class="checkbox-label" style="border-color: var(--color-primary-blue); background-color: rgba(137, 207, 240, 0.05);">
+                  <input type="radio" name="payment" checked>
+                  <div style="flex: 1; display: flex; align-items: center; gap: 12px;">
+                    <i class="ph-fill ph-credit-card" style="font-size: 1.5rem; color: var(--color-text-main);"></i>
+                    <span style="font-weight: 500;">Банківська картка (Visa / Mastercard)</span>
+                  </div>
+                </label>
+                
+                <label class="checkbox-label">
+                  <input type="radio" name="payment">
+                  <div style="flex: 1; display: flex; align-items: center; gap: 12px;">
+                    <i class="ph-fill ph-google-logo" style="font-size: 1.5rem; color: var(--color-text-main);"></i>
+                    <span style="font-weight: 500;">Google Pay</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Права колонка: Підсумок -->
+          <div>
+            <div class="order-summary">
+              <h3 style="margin-bottom: 24px; font-size: 1.25rem;">Ваше замовлення</h3>
+              
+              <div style="margin-bottom: 24px;">
+                <div style="font-weight: 600; margin-bottom: 4px;">Київ-Пас. — Львів</div>
+                <div style="font-size: 0.9rem; color: var(--color-text-muted);">24 липня 2026, 13:15</div>
+                <div style="font-size: 0.9rem; color: var(--color-text-muted);">Потяг 715К (Інтерсіті+)</div>
+              </div>
+              
+              <div class="summary-item">
+                <span>Квиток (Сидячий 2 кл., Місце 6)</span>
+                <span>450 грн</span>
+              </div>
+              <div class="summary-item muted">
+                <span>Напій</span>
+                <span>20 грн</span>
+              </div>
+              
+              <div class="summary-total">
+                <span>Разом</span>
+                <span class="price">470 грн</span>
+              </div>
+              
+              <button class="btn btn--primary btn--block" style="margin-top: 24px; padding: 16px; font-size: 1.1rem;" onclick="alert('Оплата пройшла успішно! Ваші квитки відправлені на пошту.')">
+                Оплатити 470 грн
+                <i class="ph ph-lock-key"></i>
+              </button>
+              
+              <div style="text-align: center; margin-top: 16px; font-size: 0.8rem; color: var(--color-text-muted);">
+                Натискаючи кнопку, ви погоджуєтесь з <a href="#" style="color: var(--color-primary-blue); text-decoration: underline;">правилами перевезень</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

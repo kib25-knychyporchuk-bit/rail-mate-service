@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вибір місця | Rail MATE</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .wagon-container {
+      background-color: var(--color-primary-white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      overflow-x: auto;
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+
+    .wagon {
+      display: inline-block;
+      border: 4px solid var(--color-border);
+      border-radius: 40px;
+      padding: 24px 60px;
+      background-color: #f8fafc;
+      position: relative;
+    }
+
+    .wagon::before, .wagon::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 40px;
+      background-color: var(--color-border);
+    }
+
+    .wagon::before { left: -20px; border-radius: 8px 0 0 8px; }
+    .wagon::after { right: -20px; border-radius: 0 8px 8px 0; }
+
+    .seat-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .seat-row.aisle {
+      margin-bottom: 40px; /* Прохід */
+    }
+
+    .seat {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .seat.available {
+      background-color: var(--color-primary-white);
+      border: 2px solid var(--color-primary-blue);
+      color: var(--color-primary-blue);
+    }
+
+    .seat.available:hover {
+      background-color: rgba(137, 207, 240, 0.2);
+    }
+
+    .seat.occupied {
+      background-color: #e2e8f0;
+      border: 2px solid #cbd5e1;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .seat.selected {
+      background-color: var(--color-accent-orange);
+      border: 2px solid var(--color-accent-orange);
+      color: var(--color-primary-white);
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(255, 127, 80, 0.4);
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    .legend-box {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    .summary-panel {
+      background-color: var(--color-primary-white);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--color-border);
+    }
+
+    .summary-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .summary-info p {
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Шапка -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="header__logo">
+          <i class="ph-fill ph-train"></i>
+          Rail MATE
+        </a>
+        <nav class="header__nav">
+          <a href="index.html" class="header__nav-link">Головна</a>
+          <a href="#" class="header__nav-link">Мої квитки</a>
+          <button class="btn btn--outline">
+            <i class="ph ph-user"></i> Увійти
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container section">
+        <a href="search-results.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--color-primary-blue); font-weight: 500; margin-bottom: 24px;">
+          <i class="ph ph-arrow-left"></i> Назад до результатів пошуку
+        </a>
+
+        <div style="margin-bottom: 32px;">
+          <h1 style="font-size: 2rem; margin-bottom: 8px;">Вибір місця</h1>
+          <p style="color: var(--color-text-muted);">Потяг 715К (Інтерсіті+) • Вагон 03 (Сидячий 2 кл.)</p>
+        </div>
+
+        <div class="wagon-container">
+          <div class="wagon">
+            <!-- Ряд 1 -->
+            <div class="seat-row">
+              <div class="seat occupied">1</div>
+              <div class="seat available">2</div>
+              <div style="width: 48px;"></div> <!-- Відступ -->
+              <div class="seat available">3</div>
+              <div class="seat occupied">4</div>
+            </div>
+            <!-- Ряд 2 -->
+            <div class="seat-row">
+              <div class="seat available">5</div>
+              <div class="seat selected">6</div> <!-- Вибране місце -->
+              <div style="width: 48px;"></div>
+              <div class="seat occupied">7</div>
+              <div class="seat available">8</div>
+            </div>
+            <!-- Ряд 3 (біля проходу) -->
+            <div class="seat-row aisle">
+              <div class="seat occupied">9</div>
+              <div class="seat occupied">10</div>
+              <div style="width: 48px;"></div>
+              <div class="seat available">11</div>
+              <div class="seat available">12</div>
+            </div>
+            <!-- Ряд 4 -->
+            <div class="seat-row">
+              <div class="seat available">13</div>
+              <div class="seat available">14</div>
+              <div style="width: 48px;"></div>
+              <div class="seat occupied">15</div>
+              <div class="seat occupied">16</div>
+            </div>
+          </div>
+
+          <div class="legend">
+            <div class="legend-item">
+              <div class="legend-box available" style="border: 2px solid var(--color-primary-blue); background: var(--color-primary-white);"></div>
+              Вільне
+            </div>
+            <div class="legend-item">
+              <div class="legend-box occupied" style="background: #e2e8f0; border: 2px solid #cbd5e1;"></div>
+              Зайняте
+            </div>
+            <div class="legend-item">
+              <div class="legend-box selected" style="background: var(--color-accent-orange);"></div>
+              Ваш вибір
+            </div>
+          </div>
+        </div>
+
+        <!-- Нижня панель фіксована або просто блоком -->
+        <div class="summary-panel">
+          <div class="summary-info">
+            <h3>Місце 6</h3>
+            <p>Вагон 03 • Сидячий 2 кл.</p>
+          </div>
+          <div style="text-align: right; display: flex; align-items: center; gap: 24px;">
+            <div>
+              <div style="font-size: 0.9rem; color: var(--color-text-muted);">До сплати:</div>
+              <div style="font-size: 1.75rem; font-weight: 700; color: var(--color-text-main);">450 грн</div>
+            </div>
+            <a href="checkout.html" class="btn btn--primary" style="padding: 16px 40px; font-size: 1.1rem;">
+              Оформити квиток
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

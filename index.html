@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rail MATE - Квитки на потяг легко та швидко</title>
+  <meta name="description" content="Зручний сервіс купівлі квитків на потяги Укрзалізниці. Швидкий пошук, безпечна оплата, легкий інтерфейс.">
+  
+  <!-- Шрифти -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Іконки (Phosphor Icons) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- Стилі -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    /* Специфічні стилі для головної сторінки */
+    .hero {
+      background: linear-gradient(rgba(137, 207, 240, 0.8), rgba(44, 62, 80, 0.6)), url('https://images.unsplash.com/photo-1515511856280-7b23f68d2996?q=80&w=2074&auto=format&fit=crop') center/cover no-repeat;
+    }
+    
+    .popular-routes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background-color: rgba(137, 207, 240, 0.2);
+      color: var(--color-primary-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Шапка -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="header__logo">
+          <i class="ph-fill ph-train"></i>
+          Rail MATE
+        </a>
+        <nav class="header__nav">
+          <a href="index.html" class="header__nav-link">Головна</a>
+          <a href="#" class="header__nav-link">Мої квитки</a>
+          <a href="#" class="header__nav-link">Допомога</a>
+          <button class="btn btn--outline">
+            <i class="ph ph-user"></i> Увійти
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Основний контент -->
+    <main>
+      <!-- Геро-секція -->
+      <section class="hero">
+        <div class="container hero__content">
+          <h1 class="hero__title">Подорожуйте з легкістю</h1>
+          <p class="hero__subtitle">Найзручніший спосіб знайти та придбати квитки на потяги по всій Україні без зайвого клопоту.</p>
+        </div>
+      </section>
+
+      <!-- Віджет пошуку -->
+      <div class="search-widget">
+        <div class="form-group">
+          <label class="form-label">Звідки</label>
+          <i class="ph ph-map-pin form-icon"></i>
+          <input type="text" class="form-control" placeholder="Київ">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Куди</label>
+          <i class="ph ph-map-trifold form-icon"></i>
+          <input type="text" class="form-control" placeholder="Львів">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Дата відправлення</label>
+          <i class="ph ph-calendar-blank form-icon"></i>
+          <input type="date" class="form-control">
+        </div>
+        <div class="form-group" style="flex: 0.5;">
+          <label class="form-label">Пасажири</label>
+          <i class="ph ph-users form-icon"></i>
+          <select class="form-control" style="padding-left: 44px; appearance: none;">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4+</option>
+          </select>
+        </div>
+        <a href="search-results.html" class="btn btn--primary" style="padding: 14px 32px; height: 50px;">
+          Знайти
+          <i class="ph ph-magnifying-glass"></i>
+        </a>
+      </div>
+
+      <!-- Популярні напрямки -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section__title">Популярні напрямки</h2>
+          <div class="popular-routes">
+            <div class="card route-card">
+              <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=500&auto=format&fit=crop" alt="Київ" class="route-card__img">
+              <div class="route-card__body">
+                <h3 class="route-card__title">Київ - Львів</h3>
+                <p class="route-card__price">від 450 грн</p>
+              </div>
+            </div>
+            <div class="card route-card">
+              <img src="https://images.unsplash.com/photo-1629806456093-61ce40cb2ce2?w=500&auto=format&fit=crop" alt="Одеса" class="route-card__img">
+              <div class="route-card__body">
+                <h3 class="route-card__title">Київ - Одеса</h3>
+                <p class="route-card__price">від 520 грн</p>
+              </div>
+            </div>
+            <div class="card route-card">
+              <img src="https://images.unsplash.com/photo-1658421379477-8d01150c26b8?w=500&auto=format&fit=crop" alt="Харків" class="route-card__img">
+              <div class="route-card__body">
+                <h3 class="route-card__title">Київ - Харків</h3>
+                <p class="route-card__price">від 390 грн</p>
+              </div>
+            </div>
+            <div class="card route-card">
+              <img src="https://images.unsplash.com/photo-1549448869-2f228b3a0df4?w=500&auto=format&fit=crop" alt="Дніпро" class="route-card__img">
+              <div class="route-card__body">
+                <h3 class="route-card__title">Київ - Дніпро</h3>
+                <p class="route-card__price">від 410 грн</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Переваги -->
+      <section class="section" style="background-color: var(--color-primary-white); margin-top: 40px;">
+        <div class="container">
+          <h2 class="section__title">Чому обирають Rail MATE?</h2>
+          <div class="features">
+            <div>
+              <div class="feature-icon">
+                <i class="ph ph-lightning"></i>
+              </div>
+              <h3>Швидке оформлення</h3>
+              <p style="color: var(--color-text-muted); margin-top: 8px;">Купуйте квиток за пару кліків без довгих черг та очікувань.</p>
+            </div>
+            <div>
+              <div class="feature-icon">
+                <i class="ph ph-shield-check"></i>
+              </div>
+              <h3>Безпечна оплата</h3>
+              <p style="color: var(--color-text-muted); margin-top: 8px;">Ваші дані надійно захищені. Ми використовуємо сучасні стандарти безпеки.</p>
+            </div>
+            <div>
+              <div class="feature-icon">
+                <i class="ph ph-ticket"></i>
+              </div>
+              <h3>Електронні квитки</h3>
+              <p style="color: var(--color-text-muted); margin-top: 8px;">Не потрібно нічого роздруковувати. Покажіть квиток з екрана смартфона.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Підвал -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <a href="index.html" class="header__logo" style="margin-bottom: 16px;">
+              <i class="ph-fill ph-train"></i>
+              Rail MATE
+            </a>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Найкращий друг у ваших залізничних подорожах по всій країні.</p>
+          </div>
+          <div class="footer__col">
+            <h4>Компанія</h4>
+            <ul>
+              <li><a href="#">Про нас</a></li>
+              <li><a href="#">Новини</a></li>
+              <li><a href="#">Вакансії</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Допомога</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Правила повернення</a></li>
+              <li><a href="#">Служба підтримки</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Контакти</h4>
+            <ul>
+              <li><a href="mailto:support@railmate.ua"><i class="ph ph-envelope-simple"></i> support@railmate.ua</a></li>
+              <li><a href="tel:+380441234567"><i class="ph ph-phone"></i> +38 044 123 45 67</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          &copy; 2026 Rail MATE. Всі права захищені.
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

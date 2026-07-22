@@ -1,0 +1,151 @@
+/* Контейнер */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Поки що фіксовані відступи для десктопу, адаптацію зробимо пізніше */
+}
+
+/* Макет сторінки */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Основний контент розтягується, притискаючи підвал вниз */
+}
+
+/* Шапка (Header) */
+.header {
+  background-color: var(--color-primary-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header__logo i {
+  font-size: 2rem;
+  color: var(--color-accent-orange);
+}
+
+.header__nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.header__nav-link {
+  font-weight: 500;
+  color: var(--color-text-main);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.header__nav-link:hover {
+  color: var(--color-primary-blue);
+}
+
+/* Підвал (Footer) */
+.footer {
+  background-color: var(--color-primary-white);
+  padding: 40px 0 20px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 60px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.footer__col h4 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__col a {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.footer__col a:hover {
+  color: var(--color-primary-blue);
+}
+
+.footer__bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Hero Section Layout */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #f0f8ff 0%, var(--color-primary-blue) 100%);
+  padding: 80px 0 120px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-primary-white);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.hero__subtitle {
+  font-size: 1.2rem;
+  color: var(--color-primary-white);
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+/* Section Layout */
+.section {
+  padding: 60px 0;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
