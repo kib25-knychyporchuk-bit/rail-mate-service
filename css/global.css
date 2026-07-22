@@ -47,3 +47,55 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   color: var(--color-text-main);
 }
+
+/* Modal / Dialog */
+.modal {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 90%;
+  margin: auto;
+  color: var(--color-text-main);
+}
+
+.modal::backdrop {
+  background: rgba(44, 62, 80, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-primary-white);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: var(--color-text-main);
+}
+
+.modal-body {
+  padding: 24px;
+  line-height: 1.6;
+  background-color: var(--color-primary-white);
+}

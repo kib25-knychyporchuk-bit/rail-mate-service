@@ -23,8 +23,9 @@
   <style>
     /* Специфічні стилі для головної сторінки */
     .hero {
-      background: linear-gradient(rgba(137, 207, 240, 0.8), rgba(44, 62, 80, 0.6)), url('https://images.unsplash.com/photo-1515511856280-7b23f68d2996?q=80&w=2074&auto=format&fit=crop') center/cover no-repeat;
+      background: linear-gradient(rgba(137, 207, 240, 0.4), rgba(41, 128, 185, 0.8)), url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
     }
+
     
     .popular-routes {
       display: grid;
@@ -78,7 +79,7 @@
         <nav class="header__nav">
           <a href="index.html" class="header__nav-link">Головна</a>
           <a href="#" class="header__nav-link">Мої квитки</a>
-          <a href="#" class="header__nav-link">Допомога</a>
+          <a href="#" class="header__nav-link" onclick="document.getElementById('helpModal').showModal(); return false;">Допомога</a>
           <button class="btn btn--outline">
             <i class="ph ph-user"></i> Увійти
           </button>
@@ -238,5 +239,22 @@
       </div>
     </footer>
   </div>
+
+  <!-- Вікно Допомоги -->
+  <dialog id="helpModal" class="modal">
+    <div class="modal-header">
+      <h2>Довідковий центр</h2>
+      <button onclick="document.getElementById('helpModal').close()" class="close-btn"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <p style="margin-bottom: 16px;">Тут ви можете знайти відповіді на найпоширеніші запитання або зв'язатися з нашою службою підтримки.</p>
+      <ul style="margin-bottom: 24px; padding-left: 20px; list-style-type: disc;">
+        <li style="margin-bottom: 8px;"><a href="#" style="color: var(--color-primary-blue);">Як повернути електронний квиток?</a></li>
+        <li style="margin-bottom: 8px;"><a href="#" style="color: var(--color-primary-blue);">Правила перевезення багажу</a></li>
+        <li style="margin-bottom: 8px;"><a href="#" style="color: var(--color-primary-blue);">Подорож з тваринами</a></li>
+      </ul>
+      <p>Телефон підтримки: <br><strong style="font-size: 1.25rem;">+38 044 123 45 67</strong></p>
+    </div>
+  </dialog>
 </body>
 </html>
