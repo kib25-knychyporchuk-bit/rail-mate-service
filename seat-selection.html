@@ -139,6 +139,21 @@
     .summary-info p {
       color: var(--color-text-muted);
     }
+
+    @media (max-width: 768px) {
+      .summary-panel {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+      .summary-panel > div {
+        flex-direction: column;
+        width: 100%;
+      }
+      .summary-panel .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -150,6 +165,8 @@
           <i class="ph-fill ph-train"></i>
           Rail MATE
         </a>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger-icon"><i class="ph ph-list"></i></label>
         <nav class="header__nav">
           <a href="index.html" class="header__nav-link">Головна</a>
           <a href="#" class="header__nav-link">Мої квитки</a>

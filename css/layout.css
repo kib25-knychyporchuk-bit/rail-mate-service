@@ -149,3 +149,75 @@ main {
   margin-bottom: 32px;
   text-align: center;
 }
+
+/* --- Burger Menu (Pure CSS) --- */
+.burger-toggle {
+  display: none;
+}
+
+.burger-icon {
+  display: none;
+  font-size: 2rem;
+  color: var(--color-text-main);
+  cursor: pointer;
+}
+
+/* --- Media Queries (Адаптивність) --- */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  .burger-icon {
+    display: block;
+  }
+
+  .header .container {
+    position: relative;
+  }
+
+  .header__nav {
+    display: none; /* Hidden by default on mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-primary-white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: var(--shadow-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .burger-toggle:checked ~ .header__nav {
+    display: flex;
+  }
+
+  .header__nav .btn {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 60px 0 100px;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  /* Footer */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .footer__col ul {
+    align-items: center;
+  }
+}

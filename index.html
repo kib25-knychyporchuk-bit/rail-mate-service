@@ -53,6 +53,15 @@
       font-size: 32px;
       margin: 0 auto 16px;
     }
+
+    @media (max-width: 768px) {
+      .popular-routes {
+        grid-template-columns: 1fr;
+      }
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -64,6 +73,8 @@
           <i class="ph-fill ph-train"></i>
           Rail MATE
         </a>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger-icon"><i class="ph ph-list"></i></label>
         <nav class="header__nav">
           <a href="index.html" class="header__nav-link">Головна</a>
           <a href="#" class="header__nav-link">Мої квитки</a>

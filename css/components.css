@@ -273,3 +273,44 @@
   background-color: rgba(137, 207, 240, 0.2);
   color: #2980b9;
 }
+
+/* --- Media Queries (Адаптивність) --- */
+@media (max-width: 768px) {
+  /* Search Widget */
+  .search-widget {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    margin: -40px 16px 0;
+    width: auto;
+  }
+
+  .search-widget .btn {
+    height: auto;
+  }
+
+  /* Train Card */
+  .train-card__route-info {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .duration-block {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+  }
+
+  .duration-block::before {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .train-card__classes {
+    grid-template-columns: 1fr;
+  }
+}
