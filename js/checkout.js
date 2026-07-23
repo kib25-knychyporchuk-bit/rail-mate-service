@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const currentUserEmail = localStorage.getItem('currentUser');
+  
+  if (!currentUserEmail) {
+    alert("Для оформлення квитка потрібно увійти в акаунт або зареєструватися.");
+    // Можна відкрити модалку або перекинути на головну
+    window.location.href = 'index.html';
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem('users'));
+  const user = users.find(u => u.email === currentUserEmail);
+
   const bookingState = Store.get('bookingState');
   
   if (!bookingState || !bookingState.seat) {
@@ -9,11 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const { searchParams, train, selectedClass, seat, wagon } = bookingState;
 
-  // Оновлення заголовку пасажира
+  // Оновлення заголовку пасажира та автозаповнення полів
   document.getElementById('checkout-passenger-title').innerHTML = `
     <i class="ph ph-user-focus"></i>
     Дані пасажира (Місце ${seat})
   `;
+  document.getElementById('passenger-first-name').value = user.firstName;
+  document.getElementById('passenger-last-name').value = user.lastName;
 
   // Оновлення блоку підсумку
   document.getElementById('summary-route').textContent = `${train.route.from} — ${train.route.to}`;
@@ -68,8 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Оплата
   payBtn.addEventListener('click', () => {
-    alert(`Оплата ${totalPrice} грн пройшла успішно! Ваші квитки відправлені на пошту.`);
-    Store.clear(); // Очищаємо дані після успішної покупки
-    window.location.href = 'index.html';
+    // Збереження квитка в профіль користувача
+    const ticket = {
+      id: 'T' + Math.floor(Math.random() * 1000000),
+      route: `${train.route.from} — ${train.route.to}`,
+      date: searchParams.date,
+      time: train.schedule.departureTime,
+      trainInfo: `Потяг ${train.number} (${train.type})`,
+      seatInfo: `Вагон ${wagon}, Місце ${seat} (${selectedClass.name})`,
+      price: totalPrice,
+      purchaseDate: new Date().toISOString()
+    };
+    
+    user.tickets.push(ticket);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert(`Оплата ${totalPrice} грн пройшла успішно! Ваші квитки збережено в профілі.`);
+    Store.clear(); // Очищаємо дані оформлення після успішної покупки
+    window.location.href = 'my-tickets.html';
   });
 });
