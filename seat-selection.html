@@ -185,43 +185,12 @@
 
         <div style="margin-bottom: 32px;">
           <h1 style="font-size: 2rem; margin-bottom: 8px;">Вибір місця</h1>
-          <p style="color: var(--color-text-muted);">Потяг 715К (Інтерсіті+) • Вагон 03 (Сидячий 2 кл.)</p>
+          <p id="train-info-header" style="color: var(--color-text-muted);">Завантаження...</p>
         </div>
 
         <div class="wagon-container">
-          <div class="wagon">
-            <!-- Ряд 1 -->
-            <div class="seat-row">
-              <div class="seat occupied">1</div>
-              <div class="seat available">2</div>
-              <div style="width: 48px;"></div> <!-- Відступ -->
-              <div class="seat available">3</div>
-              <div class="seat occupied">4</div>
-            </div>
-            <!-- Ряд 2 -->
-            <div class="seat-row">
-              <div class="seat available">5</div>
-              <div class="seat selected">6</div> <!-- Вибране місце -->
-              <div style="width: 48px;"></div>
-              <div class="seat occupied">7</div>
-              <div class="seat available">8</div>
-            </div>
-            <!-- Ряд 3 (біля проходу) -->
-            <div class="seat-row aisle">
-              <div class="seat occupied">9</div>
-              <div class="seat occupied">10</div>
-              <div style="width: 48px;"></div>
-              <div class="seat available">11</div>
-              <div class="seat available">12</div>
-            </div>
-            <!-- Ряд 4 -->
-            <div class="seat-row">
-              <div class="seat available">13</div>
-              <div class="seat available">14</div>
-              <div style="width: 48px;"></div>
-              <div class="seat occupied">15</div>
-              <div class="seat occupied">16</div>
-            </div>
+          <div id="wagon-layout" class="wagon">
+            <!-- JS CONTENT -->
           </div>
 
           <div class="legend">
@@ -243,23 +212,26 @@
         <!-- Нижня панель фіксована або просто блоком -->
         <div class="summary-panel">
           <div class="summary-info">
-            <h3>Місце 6</h3>
-            <p>Вагон 03 • Сидячий 2 кл.</p>
+            <h3 id="summary-seat">Місце не вибрано</h3>
+            <p id="summary-details">Вагон 03</p>
           </div>
           <div style="text-align: right; display: flex; align-items: center; gap: 24px;">
             <div>
               <div style="font-size: 0.9rem; color: var(--color-text-muted);">До сплати:</div>
-              <div style="font-size: 1.75rem; font-weight: 700; color: var(--color-text-main);">450 грн</div>
+              <div id="summary-price" style="font-size: 1.75rem; font-weight: 700; color: var(--color-text-main);">0 грн</div>
             </div>
-            <a href="checkout.html" class="btn btn--primary" style="padding: 16px 40px; font-size: 1.1rem;">
+            <button id="checkout-btn" class="btn btn--primary" style="padding: 16px 40px; font-size: 1.1rem;" disabled>
               Оформити квиток
               <i class="ph ph-arrow-right"></i>
-            </a>
+            </button>
           </div>
         </div>
 
       </div>
     </main>
   </div>
+  <!-- Скрипти -->
+  <script src="js/dataService.js"></script>
+  <script src="js/seats.js"></script>
 </body>
 </html>

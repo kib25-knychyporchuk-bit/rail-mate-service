@@ -167,9 +167,9 @@
           <div class="checkout-forms">
             
             <div class="checkout-section">
-              <h2 class="checkout-section__title">
+              <h2 class="checkout-section__title" id="checkout-passenger-title">
                 <i class="ph ph-user-focus"></i>
-                Дані пасажира (Місце 6)
+                Дані пасажира (Місце Завантаження...)
               </h2>
               
               <div class="form-row">
@@ -204,7 +204,7 @@
               
               <div class="checkbox-group">
                 <label class="checkbox-label">
-                  <input type="checkbox" checked>
+                  <input type="checkbox" id="addon-drink" data-price="20">
                   <div style="flex: 1;">
                     <div style="font-weight: 500;">Напій (чай або кава)</div>
                     <div style="font-size: 0.85rem; color: var(--color-text-muted);">Буде запропоновано провідником</div>
@@ -213,7 +213,7 @@
                 </label>
                 
                 <label class="checkbox-label">
-                  <input type="checkbox">
+                  <input type="checkbox" id="addon-baggage" data-price="150">
                   <div style="flex: 1;">
                     <div style="font-weight: 500;">Додатковий багаж</div>
                     <div style="font-size: 0.85rem; color: var(--color-text-muted);">Більше 36 кг або великогабаритний</div>
@@ -256,27 +256,31 @@
               <h3 style="margin-bottom: 24px; font-size: 1.25rem;">Ваше замовлення</h3>
               
               <div style="margin-bottom: 24px;">
-                <div style="font-weight: 600; margin-bottom: 4px;">Київ-Пас. — Львів</div>
-                <div style="font-size: 0.9rem; color: var(--color-text-muted);">24 липня 2026, 13:15</div>
-                <div style="font-size: 0.9rem; color: var(--color-text-muted);">Потяг 715К (Інтерсіті+)</div>
+                <div id="summary-route" style="font-weight: 600; margin-bottom: 4px;">Завантаження...</div>
+                <div id="summary-date-time" style="font-size: 0.9rem; color: var(--color-text-muted);">...</div>
+                <div id="summary-train-info" style="font-size: 0.9rem; color: var(--color-text-muted);">...</div>
               </div>
               
               <div class="summary-item">
-                <span>Квиток (Сидячий 2 кл., Місце 6)</span>
-                <span>450 грн</span>
+                <span id="summary-ticket-details">Квиток</span>
+                <span id="summary-ticket-price">0 грн</span>
               </div>
-              <div class="summary-item muted">
+              <div class="summary-item muted" id="summary-drink" style="display: none;">
                 <span>Напій</span>
                 <span>20 грн</span>
+              </div>
+              <div class="summary-item muted" id="summary-baggage" style="display: none;">
+                <span>Додатковий багаж</span>
+                <span>150 грн</span>
               </div>
               
               <div class="summary-total">
                 <span>Разом</span>
-                <span class="price">470 грн</span>
+                <span id="summary-total-price" class="price">0 грн</span>
               </div>
               
-              <button class="btn btn--primary btn--block" style="margin-top: 24px; padding: 16px; font-size: 1.1rem;" onclick="alert('Оплата пройшла успішно! Ваші квитки відправлені на пошту.')">
-                Оплатити 470 грн
+              <button id="pay-btn" class="btn btn--primary btn--block" style="margin-top: 24px; padding: 16px; font-size: 1.1rem;">
+                Оплатити
                 <i class="ph ph-lock-key"></i>
               </button>
               
@@ -290,5 +294,8 @@
       </div>
     </main>
   </div>
+  <!-- Скрипти -->
+  <script src="js/dataService.js"></script>
+  <script src="js/checkout.js"></script>
 </body>
 </html>

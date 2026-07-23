@@ -1,0 +1,124 @@
+[
+  {
+    "id": "t1",
+    "number": "715К",
+    "type": "Інтерсіті+",
+    "typeClass": "intercity",
+    "route": {
+      "from": "Київ-Пас.",
+      "to": "Львів"
+    },
+    "schedule": {
+      "departureTime": "13:15",
+      "arrivalTime": "19:20",
+      "duration": "6 год 5 хв"
+    },
+    "classes": [
+      {
+        "id": "c1",
+        "name": "Сидячий 1 кл.",
+        "availableSeats": 12,
+        "price": 950
+      },
+      {
+        "id": "c2",
+        "name": "Сидячий 2 кл.",
+        "availableSeats": 45,
+        "price": 450
+      }
+    ]
+  },
+  {
+    "id": "t2",
+    "number": "091К",
+    "type": "Швидкий нічний",
+    "typeClass": "night",
+    "route": {
+      "from": "Київ-Пас.",
+      "to": "Львів"
+    },
+    "schedule": {
+      "departureTime": "22:37",
+      "arrivalTime": "06:19",
+      "duration": "7 год 42 хв"
+    },
+    "classes": [
+      {
+        "id": "c3",
+        "name": "Люкс",
+        "availableSeats": 4,
+        "price": 1850
+      },
+      {
+        "id": "c4",
+        "name": "Купе",
+        "availableSeats": 18,
+        "price": 850
+      },
+      {
+        "id": "c5",
+        "name": "Плацкарт",
+        "availableSeats": 0,
+        "price": 400
+      }
+    ]
+  },
+  {
+    "id": "t3",
+    "number": "743Д",
+    "type": "Інтерсіті+",
+    "typeClass": "intercity",
+    "route": {
+      "from": "Київ-Пас.",
+      "to": "Львів"
+    },
+    "schedule": {
+      "departureTime": "06:20",
+      "arrivalTime": "11:58",
+      "duration": "5 год 38 хв"
+    },
+    "classes": [
+      {
+        "id": "c1",
+        "name": "Сидячий 1 кл.",
+        "availableSeats": 5,
+        "price": 1050
+      },
+      {
+        "id": "c2",
+        "name": "Сидячий 2 кл.",
+        "availableSeats": 80,
+        "price": 520
+      }
+    ]
+  },
+  {
+    "id": "t4",
+    "number": "038К",
+    "type": "Швидкий нічний",
+    "typeClass": "night",
+    "route": {
+      "from": "Київ-Пас.",
+      "to": "Одеса"
+    },
+    "schedule": {
+      "departureTime": "21:15",
+      "arrivalTime": "06:10",
+      "duration": "8 год 55 хв"
+    },
+    "classes": [
+      {
+        "id": "c3",
+        "name": "Люкс",
+        "availableSeats": 2,
+        "price": 1950
+      },
+      {
+        "id": "c4",
+        "name": "Купе",
+        "availableSeats": 12,
+        "price": 950
+      }
+    ]
+  }
+]
