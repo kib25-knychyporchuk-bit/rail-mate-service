@@ -102,67 +102,41 @@
         <div class="form-group">
           <label class="form-label">Звідки</label>
           <i class="ph ph-map-pin form-icon"></i>
-          <input type="text" class="form-control" placeholder="Київ">
+          <input type="text" id="search-from" class="form-control" placeholder="Київ">
         </div>
         <div class="form-group">
           <label class="form-label">Куди</label>
           <i class="ph ph-map-trifold form-icon"></i>
-          <input type="text" class="form-control" placeholder="Львів">
+          <input type="text" id="search-to" class="form-control" placeholder="Львів">
         </div>
         <div class="form-group">
           <label class="form-label">Дата відправлення</label>
           <i class="ph ph-calendar-blank form-icon"></i>
-          <input type="date" class="form-control">
+          <input type="date" id="search-date" class="form-control">
         </div>
         <div class="form-group" style="flex: 0.5;">
           <label class="form-label">Пасажири</label>
           <i class="ph ph-users form-icon"></i>
-          <select class="form-control" style="padding-left: 44px; appearance: none;">
+          <select id="search-passengers" class="form-control" style="padding-left: 44px; appearance: none;">
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4+</option>
           </select>
         </div>
-        <a href="search-results.html" class="btn btn--primary" style="padding: 14px 32px; height: 50px;">
+        <button id="search-btn" class="btn btn--primary" style="padding: 14px 32px; height: 50px;">
           Знайти
           <i class="ph ph-magnifying-glass"></i>
-        </a>
+        </button>
       </div>
 
       <!-- Популярні напрямки -->
       <section class="section">
         <div class="container">
           <h2 class="section__title">Популярні напрямки</h2>
+          <!-- Картки будуть згенеровані через JS (js/search.js) з файлу data/routes.json -->
           <div class="popular-routes">
-            <div class="card route-card">
-              <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=500&auto=format&fit=crop" alt="Київ" class="route-card__img">
-              <div class="route-card__body">
-                <h3 class="route-card__title">Київ - Львів</h3>
-                <p class="route-card__price">від 450 грн</p>
-              </div>
-            </div>
-            <div class="card route-card">
-              <img src="https://images.unsplash.com/photo-1629806456093-61ce40cb2ce2?w=500&auto=format&fit=crop" alt="Одеса" class="route-card__img">
-              <div class="route-card__body">
-                <h3 class="route-card__title">Київ - Одеса</h3>
-                <p class="route-card__price">від 520 грн</p>
-              </div>
-            </div>
-            <div class="card route-card">
-              <img src="https://images.unsplash.com/photo-1658421379477-8d01150c26b8?w=500&auto=format&fit=crop" alt="Харків" class="route-card__img">
-              <div class="route-card__body">
-                <h3 class="route-card__title">Київ - Харків</h3>
-                <p class="route-card__price">від 390 грн</p>
-              </div>
-            </div>
-            <div class="card route-card">
-              <img src="https://images.unsplash.com/photo-1549448869-2f228b3a0df4?w=500&auto=format&fit=crop" alt="Дніпро" class="route-card__img">
-              <div class="route-card__body">
-                <h3 class="route-card__title">Київ - Дніпро</h3>
-                <p class="route-card__price">від 410 грн</p>
-              </div>
-            </div>
+            <!-- JS CONTENT -->
           </div>
         </div>
       </section>
@@ -256,5 +230,9 @@
       <p>Телефон підтримки: <br><strong style="font-size: 1.25rem;">+38 044 123 45 67</strong></p>
     </div>
   </dialog>
+
+  <!-- Скрипти -->
+  <script src="js/dataService.js"></script>
+  <script src="js/search.js"></script>
 </body>
 </html>
