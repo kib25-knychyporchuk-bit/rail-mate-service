@@ -146,13 +146,12 @@
         </a>
         <input type="checkbox" id="burger-toggle" class="burger-toggle">
         <label for="burger-toggle" class="burger-icon"><i class="ph ph-list"></i></label>
-        <nav class="header__nav">
+        <nav class="header__nav" id="header-nav">
           <a href="index.html" class="header__nav-link">Головна</a>
-          <a href="#" class="header__nav-link">Мої квитки</a>
-          <div class="header__nav-link" style="display: flex; align-items: center; gap: 8px;">
-            <i class="ph-fill ph-user-circle" style="font-size: 1.5rem; color: var(--color-primary-blue);"></i>
-            Олексій
-          </div>
+          <a href="my-tickets.html" class="header__nav-link" id="nav-my-tickets">Мої квитки</a>
+          <button class="btn btn--outline" id="nav-login-btn">
+            <i class="ph ph-user"></i> Увійти
+          </button>
         </nav>
       </div>
     </header>
@@ -176,12 +175,12 @@
                 <div class="form-group">
                   <label class="form-label">Ім'я</label>
                   <i class="ph ph-user form-icon"></i>
-                  <input type="text" class="form-control" placeholder="Олексій" value="Олексій">
+                  <input type="text" class="form-control" id="passenger-first-name" placeholder="Введіть ім'я">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Прізвище</label>
                   <i class="ph ph-user form-icon"></i>
-                  <input type="text" class="form-control" placeholder="Іванов" value="Іванов">
+                  <input type="text" class="form-control" id="passenger-last-name" placeholder="Введіть прізвище">
                 </div>
               </div>
               
@@ -296,6 +295,7 @@
   </div>
   <!-- Скрипти -->
   <script src="js/dataService.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/checkout.js"></script>
 </body>
 </html>

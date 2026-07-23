@@ -167,10 +167,10 @@
         </a>
         <input type="checkbox" id="burger-toggle" class="burger-toggle">
         <label for="burger-toggle" class="burger-icon"><i class="ph ph-list"></i></label>
-        <nav class="header__nav">
+        <nav class="header__nav" id="header-nav">
           <a href="index.html" class="header__nav-link">Головна</a>
-          <a href="#" class="header__nav-link">Мої квитки</a>
-          <button class="btn btn--outline">
+          <a href="my-tickets.html" class="header__nav-link" id="nav-my-tickets">Мої квитки</a>
+          <button class="btn btn--outline" id="nav-login-btn">
             <i class="ph ph-user"></i> Увійти
           </button>
         </nav>
@@ -232,6 +232,7 @@
   </div>
   <!-- Скрипти -->
   <script src="js/dataService.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/seats.js"></script>
 </body>
 </html>
